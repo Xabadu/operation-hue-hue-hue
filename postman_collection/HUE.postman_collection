@@ -1,0 +1,662 @@
+{
+	"info": {
+		"_postman_id": "38c4917e-19e7-4447-a904-54e47af96bbe",
+		"name": "HUE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "lights",
+			"item": [
+				{
+					"name": "get lights",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ip}}/api/{{user}}/lights",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"{{user}}",
+								"lights"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get lights detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ip}}/api/{{user}}/lights/6",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"{{user}}",
+								"lights",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update light state",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mode\": \"raw\",\r\n    \"raw\": \"{\\\"on\\\":true}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ip}}/api/{{user}}/lights/6/state",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"{{user}}",
+								"lights",
+								"6",
+								"state"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Change color",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"on\": true,\r\n    \"hue\": 33535,\r\n    \"sat\": 200,\r\n    \"bri\": 150,\r\n    \"transitiontime\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip}}/api/{{user}}/lights/6/state",
+									"host": [
+										"{{ip}}"
+									],
+									"path": [
+										"api",
+										"{{user}}",
+										"lights",
+										"6",
+										"state"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Nov 2020 06:36:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 1 Aug 2011 09:00:00 GMT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, PUT, DELETE, HEAD"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self'"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"success\": {\n            \"/lights/6/state/transitiontime\": 10\n        }\n    },\n    {\n        \"success\": {\n            \"/lights/6/state/on\": true\n        }\n    },\n    {\n        \"success\": {\n            \"/lights/6/state/hue\": 33535\n        }\n    },\n    {\n        \"success\": {\n            \"/lights/6/state/sat\": 200\n        }\n    },\n    {\n        \"success\": {\n            \"/lights/6/state/bri\": 150\n        }\n    }\n]"
+						},
+						{
+							"name": "color loop",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"effect\": \"colorloop\",\r\n    \"transitiontime\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip}}/api/{{user}}/lights/6/state",
+									"host": [
+										"{{ip}}"
+									],
+									"path": [
+										"api",
+										"{{user}}",
+										"lights",
+										"6",
+										"state"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Nov 2020 06:36:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 1 Aug 2011 09:00:00 GMT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, PUT, DELETE, HEAD"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self'"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"success\": {\n            \"/lights/6/state/transitiontime\": 5\n        }\n    },\n    {\n        \"success\": {\n            \"/lights/6/state/effect\": \"colorloop\"\n        }\n    }\n]"
+						}
+					]
+				}
+			],
+			"description": "endpoints to individual ligths",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "groups",
+			"item": [
+				{
+					"name": "get groups",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ip}}/api/{{user}}/groups",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"{{user}}",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get groups details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ip}}/api/{{user}}/groups/2",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"{{user}}",
+								"groups",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update group state",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mode\": \"raw\",\r\n    \"raw\": \"{\\\"xy\\\":[0.3, 0.3]}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ip}}/api/{{user}}/groups/2/action",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"{{user}}",
+								"groups",
+								"2",
+								"action"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "change color",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"on\": true,\r\n    \"hue\": 33535,\r\n    \"sat\": 200,\r\n    \"bri\": 150,\r\n    \"transitiontime\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip}}/api/{{user}}/groups/2/action",
+									"host": [
+										"{{ip}}"
+									],
+									"path": [
+										"api",
+										"{{user}}",
+										"groups",
+										"2",
+										"action"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Nov 2020 06:37:06 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 1 Aug 2011 09:00:00 GMT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, PUT, DELETE, HEAD"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self'"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"success\": {\n            \"/groups/2/action/transitiontime\": 10\n        }\n    },\n    {\n        \"success\": {\n            \"/groups/2/action/on\": true\n        }\n    },\n    {\n        \"success\": {\n            \"/groups/2/action/bri\": 150\n        }\n    },\n    {\n        \"success\": {\n            \"/groups/2/action/hue\": 33535\n        }\n    },\n    {\n        \"success\": {\n            \"/groups/2/action/sat\": 200\n        }\n    }\n]"
+						},
+						{
+							"name": "color loop",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"effect\": \"colorloop\",\r\n    \"transitiontime\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ip}}/api/{{user}}/groups/2/action",
+									"host": [
+										"{{ip}}"
+									],
+									"path": [
+										"api",
+										"{{user}}",
+										"groups",
+										"2",
+										"action"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Nov 2020 06:37:06 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 1 Aug 2011 09:00:00 GMT"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "3600"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS, PUT, DELETE, HEAD"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self'"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"success\": {\n            \"/groups/2/action/transitiontime\": 5\n        }\n    },\n    {\n        \"success\": {\n            \"/groups/2/action/effect\": \"colorloop\"\n        }\n    }\n]"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Create user token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"devicetype\": \"app_name#namespace\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ip}}/api",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api"
+					]
+				},
+				"description": "create a user token for acces to hue api in hub.\r\ndevicetype is a string with your \"app\" namespace identifier, it must be unique"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
