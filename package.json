@@ -1,11 +1,11 @@
 {
   "name": "operation-hue-hue-hue",
   "version": "1.0.0",
-  "description": "",
+  "description": "Operate Philips Hue lights with Twitch!",
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [
     "hue",
@@ -26,6 +26,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
+    "jest": "^26.6.3",
     "lint-staged": "^10.2.11",
     "nodemon": "^2.0.4",
     "prettier": "2.0.5"

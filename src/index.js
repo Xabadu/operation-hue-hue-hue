@@ -2,8 +2,9 @@ require("dotenv").config();
 
 const tmi = require("tmi.js");
 
-const { hexToRGB, COLORS } = require("./hue_colors");
-const { updateColorLights, setColorLoop } = require("./hue_commands");
+const { hexToRGB } = require("./lib/color_helpers");
+const { updateColorLights, setColorLoop } = require("./lib/hue_commands");
+const COLORS = require("./data/colors");
 
 const client = new tmi.Client({
   connection: {
@@ -16,31 +17,30 @@ const client = new tmi.Client({
 client.connect();
 
 client.on("message", (channel, tags, message, self) => {
-  // !color rgb(255, 255, 255)
-  // !color #ffffff #fff
-  // !color blue
-
+  // !{command} rgb(255, 255, 255)
+  // !{command} #ffffff
+  // !{command} css color (check data/colors.js for available colors)
   let rgbColorMessage;
-  if (message.startsWith("!color")) {
-    // comando para cambiar la luz
-    colorMessage = message.split("!color ")[1];
+  if (message.startsWith(`!${process.env.LIGHTS_COMMAND} `)) {
+    colorMessage = message.split(`!${process.env.LIGHTS_COMMAND} `)[1];
 
-    if (COLORS.hasOwnProperty(colorMessage.toUpperCase())) {
-      rgbColorMessage = COLORS[colorMessage.toUpperCase()];
+    if (COLORS.hasOwnProperty(colorMessage.toLowerCase())) {
+      rgbColorMessage = hexToRGB(COLORS[colorMessage.toLowerCase()]);
     }
-    if (message.indexOf("rgb") !== -1) {
+    if (colorMessage.startsWith("rgb")) {
       rgbColorMessage = colorMessage;
     }
-    if (message.indexOf("#") !== -1) {
-      rgbColorMessage = hexToRGB(message.split("!color #")[1]);
+    if (colorMessage.startsWith("#")) {
+      rgbColorMessage = hexToRGB(colorMessage);
     }
 
     if (rgbColorMessage) {
+      console.log("ohnoes", rgbColorMessage);
       updateColorLights(rgbColorMessage);
     }
   }
   // !loop
-  if (message.startsWith("!loop")) {
+  if (message.startsWith(`!${process.env.LOOP_COMMAND}`)) {
     setColorLoop(true);
   }
 });
