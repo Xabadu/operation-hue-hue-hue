@@ -3,28 +3,17 @@ exports.hexToRGB = (hex) => {
   // 233456
   // fff
   // r -> = 0x23, g-> 0x34, b-> 0x56
-  if (hex.length < 3 || hex.length > 6) {
+  if (!hex.match(/^#([A-Fa-f0-9]{6})$/)) {
     return;
   }
 
-  const r = hex.length === 3 ? `0x${hex[0]}${hex[0]}` : `0x${hex[0]}${hex[1]}`;
-  const g = hex.length === 3 ? `0x${hex[1]}${hex[1]}` : `0x${hex[2]}${hex[3]}`;
-  const b = hex.length === 3 ? `0x${hex[2]}${hex[2]}` : `0x${hex[4]}${hex[5]}`;
+  const r = `0x${hex[1]}${hex[2]}`;
+  const g = `0x${hex[3]}${hex[4]}`;
+  const b = `0x${hex[5]}${hex[6]}`;
 
   // +r -> number
 
   return `rgb(${+r},${+g},${+b})`;
-};
-
-//TODO: add eng translate and more colors
-exports.COLORS = {
-  BLANCO: "rgb(255, 255, 255)",
-  ROJO: "rgb(255, 0, 0)",
-  VERDE: "rgb(0, 255, 0)",
-  AZUL: "rgb(0, 0, 255)",
-  MORADO: "rgb(138, 9, 237)",
-  AMARILLO: "rgb(230, 230, 16)",
-  CYAN: "rgb(3,248,252)",
 };
 
 // const rgbColor = Color.rgb(3, 252, 11);

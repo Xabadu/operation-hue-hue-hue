@@ -151,4 +151,7 @@ dist
 # Ignore all local history of files
 .history
 
+### Others
+TODO
+
 # End of https://www.toptal.com/developers/gitignore/api/node,macos,visualstudiocode

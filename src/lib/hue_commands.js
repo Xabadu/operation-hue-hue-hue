@@ -1,7 +1,7 @@
 const axios = require("axios");
 const Color = require("color");
 
-const { HSB } = require("./hue_colors");
+const { HSB } = require("./color_helpers");
 
 const HUE_BASE_PATH = `http://${process.env.HUB_IP}/api/${process.env.HUB_USER}`;
 const HUE_RESOURCE = process.env.HUE_RESOURCE;

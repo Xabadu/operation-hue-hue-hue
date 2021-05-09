@@ -1,3 +1,10 @@
+/* This is the legacy code done originally on the stream - No longer used.
+App logic now lives in src/index.js
+
+You can watch the original video here:
+https://www.youtube.com/watch?v=sBglf1RggaM
+*/
+
 const axios = require("axios");
 const Color = require("color");
 const tmi = require("tmi.js");
