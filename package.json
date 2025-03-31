@@ -19,7 +19,7 @@
     "axios": "^0.21.1",
     "color": "^3.1.2",
     "dotenv": "^8.2.0",
-    "tmi.js": "^1.5.0"
+    "tmi.js": "^1.8.5"
   },
   "devDependencies": {
     "eslint": "^7.2.0",
